@@ -5,7 +5,20 @@
         <title>我的笔记</title>
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta http-equiv="x-pjax-version" content="v173">
-        <link rel="apple-touch-icon-precomposed" sizes="144x144" href="ico/favico-144-precomposed.png">
+		<script type="text/javascript" src="scripts/common/jquery.min.js"></script>
+		<script>
+			$.ajax({
+				url:"/notebook.do",
+				method:"get",
+				async:false,
+				success:function (data) {
+					if(data == "fail"){
+					    location.href = "/login.html";
+					}
+                }
+			})
+		</script>
+		<link rel="apple-touch-icon-precomposed" sizes="144x144" href="ico/favico-144-precomposed.png">
         <link rel="apple-touch-icon-precomposed" sizes="114x114" href="ico/favico-114-precomposed.png">
         <link rel="apple-touch-icon-precomposed" sizes="72x72" href="ico/favico-72-precomposed.png">
         <link rel="apple-touch-icon-precomposed" href="ico/favico-57-precomposed.png">
@@ -295,7 +308,6 @@
 				$('#myEditor').width(width-20);
 			};
 		</script>
-        <script type="text/javascript" src="scripts/common/jquery.min.js"></script>
 		<!-- 全局变量&&AJAX&&回调函数&&COOKIE -->
 		<script type="text/javascript" src="scripts/notebook.js"></script>
 		<script type="text/javascript" src="scripts/note.js"></script>
